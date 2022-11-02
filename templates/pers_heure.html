@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block title %}Moyenne du nombre de membre present pour chaque heure dans les 4 derniere semaines{% endblock %}
+{% block main_title %}Moyenne du nombre de membre present pour chaque heure dans les 4 derniere semaines{% endblock %}
+{% block content %}
+<table>
+    {% for (i,j) in dic.items() %}
+        <tr>
+            <th>{{ i }}</th>
+            <td class="
+                {% if j<1%}red{% endif %}
+                {% if j>=1 and j<3%}dark_orange{% endif %}
+                {% if j>=3 and j<5%}orange{% endif %}
+                {% if j>=5 and j<9%}light_green{% endif %}
+                {% if j>=9 and j<13%}green{% endif %}
+            ">{{ "%0.2f" | format(j)  }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{{ macros.mklien("index","Retour a l'acceuil") }}
+{% endblock %}

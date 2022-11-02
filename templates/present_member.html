@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block title %}Membre present le {{ day }}{% endblock %}
+{% block main_title %}Membre present le {{ day }}{% endblock %}
+{% block content %}
+<table>
+    {% for (i,j) in dic.items() %}
+        <tr><th>{{ i }}</th></tr>
+        {% for k in j %}
+            <tr><td>{{ k }}</td></tr>
+        {% endfor %}
+    {% endfor %}
+</table>
+    {{ macros.mklien("index","Retour a l'acceuil") }}
+{% endblock %}

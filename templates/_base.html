@@ -1,0 +1,13 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="Fr">
+	<head>
+		<meta charset="utf-8">
+		<link rel ="stylesheet" content="text/css" href="static/CSS/style2.css">
+		<title>Projet Web - {% block title %}{% endblock %}</title>
+	</head>
+<body>
+    <h1>{% block main_title %}{% endblock %}</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

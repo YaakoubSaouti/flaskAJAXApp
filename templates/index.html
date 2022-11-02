@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+{% block title %}Index{% endblock %}
+{% block main_title %}Index{% endblock %}
+{% block content %}
+    <form method="get" action="{{ url_for("total_day") }}">
+        <p class="title">Total des achat d'un jour:</p>
+        <label for="choose_day">Jour :</label>
+        <input id="choose_day" type="date" name="date">
+        <input type="submit" value="ok">
+    </form>
+    <form method="get" action="{{ url_for("total_month") }}">
+        <p class="title">Total des achat par mois:</p>
+        <label for="choose_month">Mois :</label>
+        <select id="choose_month" name="month">
+            {% for i in months %}
+                <option value="{{ "%02d"|format(months.index(i) + 1) }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <label for="choose_year">Year:</label>
+        <select id="choose_year" name="year">
+            {% for i in years %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="ok">
+    </form>
+    <form method="get" action="{{ url_for("total_year") }}">
+        <p class="title">Total des achat par annee:</p>
+        <label for="choose_year">Year :</label>
+        <select id="choose_year" name="year">
+            {% for i in years %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="ok">
+    </form>
+    <form method="get" action="{{ url_for("present_member") }}">
+        <p class="title">Personnes presentes pour un jour precis:</p>
+        <label for="choose_day">Jour :</label>
+        <input id="choose_day" type="date" name="date">
+        <input type="submit" value="ok">
+    </form>
+    {{ macros.mklien("sub_list","Liste des abonnement(cliquez ici)") }}
+    {{ macros.mklien("products_count","Exemplaires de chaque produit sur les 30 dernier jours (cliquez ici)") }}
+    {{ macros.mklien("pers_heure","Nombre de personnes moyen par heure sur les 4 derniere semaines(cliquez ici)") }}
+    {{ macros.mklien("pos","Acces au point de vente(cliquez ici)") }}
+    {% with msgs=get_flashed_messages("error") %}
+        {% if msgs %}
+            <div class="error">
+                <ul>
+                    {% for msg in msgs %}
+                        <li>{{ msg[1] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+{% block title %}Liste des abonnements{% endblock %}
+{% block main_title %}Liste des abonnements{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th>Nom du client</th>
+        <th>Séances Achetées</th>
+        <th>Séances Utilisées</th>
+        <th>Séances restantes</th>
+    <tr>
+    {% for i in range(listres|length) %}
+        <tr>
+            <td>{{ listnom[i] }}</td>
+            <td>{{ listach[i] }}</td>
+            <td>{{ listutilise[i] }}</td>
+            <td>{{ listres[i] }}</td>
+        <tr>
+    {% endfor %}
+{{ macros.mklien("index","Retour a l'acceuil") }}
+</table>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% macro mklien(res,nom) %}
+    <a href="{{ url_for(res) }}">
+        <div class="title">{{ nom }}</div>
+    </a>
+{% endmacro %}

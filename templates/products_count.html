@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% block title %}Liste des abonnements{% endblock %}
+{% block main_title %}Liste des abonnements{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th>Nom du Produit</th>
+        <th>Nombre Moyen d'exemplaire acheté</th>
+    <tr>
+    {% for (i,j) in dic.items() %}
+        <tr>
+            <td>{{ i }}</td>
+            <td>{{ "x%0.2f"|format(j) }}</td>
+        <tr>
+    {% endfor %}
+</table>
+    {{ macros.mklien("index","Retour a l'acceuil") }}
+{% endblock %}

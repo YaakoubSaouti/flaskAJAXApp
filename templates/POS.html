@@ -1,0 +1,98 @@
+{% import "macros.html" as macros %}
+<!doctype html>
+<html lang="Fr">
+	<head>
+		<meta charset="utf-8">
+		<link rel ="stylesheet" content="text/css" href="static/CSS/style.css">
+		<title>Projet Web - POS</title>
+        <script src="static/JS/common.js"></script>
+		<script src="static/JS/script.js"></script>
+	</head>
+	<body>
+        <h1>POS</h1>
+        <h2 id="subtitle"></h2>
+        <div id="centerPButton">
+            <button id="home" class="pbutton">Menu principal</button>
+            <button id="return" class="pbutton">Retour</button>
+        </div>
+        <div id="main_menu">
+            <div class="choice" id="manage_members">
+                <div class="dscrtext">Pour gerer les membres cliquez ici.</div>
+            </div>
+            <div class="choice" id="manage_purchases">
+                <div class="dscrtext">Pour gerer les achats cliquez ici.</div>
+            </div>
+            <div class="choice" id="manage_subscriptions">
+                <div class="dscrtext">Pour gerer les abonnement cliquez ici.</div>
+            </div>
+            <div class="choice" id="manage_arrivals">
+                <div class="dscrtext">Pour gerer les arrivee et departs cliquez ici.</div>
+            </div>
+        </div>
+        <div id="members_mngmt">
+            <div id="members_list"></div>
+            <button id="add">ajouter</button>
+        </div>
+        <div id="register_div">
+            <div class="champs_container">
+                <span class="titre">Nom</span><br>
+                <input class="champs" type="text" value="" id="name">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Prenom</span><br>
+                <input class="champs" type="text" id="fname">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Date de naissance</span><br>
+                <input class="champs" type="date" id="dob">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Adresse</span><br>
+                <input class="champs" type="email" id="adress">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Code Postal</span><br>
+                <input class="champs" type="email" id="pc">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Localite</span><br>
+                <input class="champs" type="email" id="locality">
+            </div>
+            <div class="champs_container">
+                <span class="titre">Numero de telephone</span><br>
+                <input class="champs" type="email" id="pn">
+            </div>
+            <div class="ok_container">
+                <button id="send">envoyer</button>
+            </div>
+            <div id="error_message">
+                <ul id="ulEM">
+                </ul>
+            </div>
+        </div>
+        <div id="member_details">
+        </div>
+        <div id="subscriptions_mngmt">
+            <div id="subs_list"></div>
+        </div>
+        <div id="purchases_mngmt">
+            <div id="Product_add">
+                <div id="product_list"></div>
+                <button id="changeToS">Aller a vente d'abonnement</button>
+            </div>
+            <div id="Subs_add">
+                <div id="sub_plan_list"></div>
+                <button id="changeToP">Aller a vente de nourriture</button>
+            </div>
+        </div>
+        <div id="arrivals_mngmt">
+            <div id="arrivals_list"></div>
+        </div>
+        <div id="navigation">
+            <button id="prev" class="btn-bot">precedent</button><button id="nxt" class="btn-bot">suivant</button>
+        </div>
+        <div id="state">
+        </div>
+        {{ macros.mklien("index","Retour a l'acceuil") }}
+	</body>
+</html>
